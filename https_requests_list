@@ -1,0 +1,15 @@
+import requests
+import sys
+
+
+headers = {'<wtv you want>',
+}
+
+site = sys.argv[1]
+list = open(sys.argv[2], 'r')
+
+for url in list:
+    sendHTTPS = requests.get(site + str(url), timeout=10, headers=headers)
+    pedidoHTTPS = sendHTTPS.status_code
+    cabecaHTTPS = sendHTTPS.headers
+    print (str(pedidoHTTPS) + "<------>" + site + str(url) + str(cabecaHTTPS))
